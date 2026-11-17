@@ -1,0 +1,32 @@
+name: publish-web
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 * * * *'
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download web version
+        run: |
+          curl -fL --retry 3 -o site.zip "https://ddytetgcdygmufitgxeg.supabase.co/storage/v1/object/public/spearhead-releases/web/site.zip?t=$(date +%s)"
+          mkdir site
+          unzip -q site.zip -d site
+          ls site | head
+          test -f site/index.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4
