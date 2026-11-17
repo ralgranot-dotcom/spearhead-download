@@ -22,8 +22,11 @@ jobs:
           curl -fL --retry 3 -o site.zip "https://ddytetgcdygmufitgxeg.supabase.co/storage/v1/object/public/spearhead-releases/web/site.zip?t=$(date +%s)"
           mkdir site
           unzip -q site.zip -d site
-          ls site | head
           test -f site/index.html
+      - name: iPhone fix (direction is handled inside the app)
+        run: |
+          sed -i 's/<html lang="he" dir="rtl">/<html lang="he">/' site/index.html
+          grep -o '<html[^>]*>' site/index.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
