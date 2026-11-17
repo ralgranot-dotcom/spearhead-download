@@ -1,0 +1,22 @@
+name: publish-apk
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: release tag
+        required: true
+permissions:
+  contents: write
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download and upload
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          curl -fL --retry 3 -o spearhead.apk https://ddytetgcdygmufitgxeg.supabase.co/storage/v1/object/public/spearhead-releases/latest/spearhead.apk
+          ls -l spearhead.apk
+          sha256sum spearhead.apk
+          gh release upload "$TAG" spearhead.apk --clobber --repo "$GITHUB_REPOSITORY"
