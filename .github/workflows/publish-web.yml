@@ -17,6 +17,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/checkout@v4
       - name: Download web version
         run: |
           curl -fL --retry 3 -o site.zip "https://ddytetgcdygmufitgxeg.supabase.co/storage/v1/object/public/spearhead-releases/web/site.zip?t=$(date +%s)"
@@ -27,6 +28,25 @@ jobs:
         run: |
           sed -i 's/<html lang="he" dir="rtl">/<html lang="he">/' site/index.html
           grep -o '<html[^>]*>' site/index.html
+      - name: Join page (first visit shows the join page; installed apps and returning users open the app directly)
+        run: |
+          cp landing/join.html landing/privacy.html site/
+          python3 - <<'PY'
+          p = 'site/index.html'
+          s = open(p, encoding='utf-8').read()
+          snip = ('<script>(function(){try{'
+                  'var q=location.search.indexOf("app=1")>=0;'
+                  'var sa=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true;'
+                  'var known=false;for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i)||"";'
+                  'if(k==="sh_joined"||k.indexOf("flutter.")===0||k.indexOf("FlutterSecureStorage")===0){known=true;break;}}'
+                  'if(q){localStorage.setItem("sh_joined","1");}else if(!sa&&!known){location.replace("join.html");}'
+                  '}catch(e){}})();</script>')
+          assert '</head>' in s and 'join.html' not in s
+          s = s.replace('</head>', snip + '\n</head>', 1)
+          open(p, 'w', encoding='utf-8').write(s)
+          PY
+          grep -c 'join.html' site/index.html
+          test -f site/join.html && test -f site/privacy.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

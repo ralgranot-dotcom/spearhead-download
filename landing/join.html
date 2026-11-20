@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>חוד החנית - איסוף | מודיעין ביטחוני בזמן אמת</title>
+<meta name="description" content="חוד החנית - איסוף: מודיעין ביטחוני ממקורות גלויים, בעברית, בזמן אמת. קבוצה סגורה, הצטרפות באישור בלבד.">
+<meta name="theme-color" content="#0A1E3F">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<!-- דף הצטרפות: מוצג למבקרים חדשים לפני כניסה לגרסת הדפדפן. אין בדף מעקב, עוגיות או שירותים חיצוניים -->
+<style>
+:root{--navy:#0A1E3F;--deep:#061229;--gold:#CBA45A;--gold2:#E6CC8A;--ink:#EAF0F8;--mut:#9FB0C8;--card:#11284F;--ok:#2E9E5B;--warn:#E0A020;--err:#D32F2F;--org:#E8792B}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--deep);color:var(--ink);font-family:"Segoe UI",Arial,"Noto Sans Hebrew",sans-serif;line-height:1.6;-webkit-text-size-adjust:100%}
+a{color:var(--gold2)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+header.hero{background:radial-gradient(circle at 50% 0,#173a72 0,var(--navy) 55%,var(--deep) 100%);padding:44px 0 36px;text-align:center;border-bottom:1px solid rgba(203,164,90,.35)}
+.logo{width:112px;height:112px;border-radius:50%;border:2px solid var(--gold);box-shadow:0 0 0 6px rgba(203,164,90,.12),0 0 40px rgba(203,164,90,.25)}
+h1{margin:14px 0 2px;font-size:34px;color:var(--gold2);letter-spacing:.5px}
+.en{color:var(--gold);font-size:12px;letter-spacing:2.5px}
+.tag{font-size:19px;margin:16px auto 8px;max-width:640px}
+.sub{color:var(--mut);margin:0 auto 22px;max-width:600px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:12px;font-weight:700;text-decoration:none;font-size:16px;border:1px solid var(--gold)}
+.btn.pri{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#1b1405}
+.btn.sec{color:var(--gold2);background:rgba(203,164,90,.08)}
+.pill{display:inline-block;margin-top:18px;padding:5px 14px;border-radius:99px;background:rgba(46,158,91,.15);border:1px solid rgba(46,158,91,.5);color:#9be0b6;font-size:13px}
+section{padding:42px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+h2{color:var(--gold2);font-size:25px;margin:0 0 6px;text-align:center}
+.lead{color:var(--mut);text-align:center;margin:0 auto 26px;max-width:640px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.feat{background:var(--card);border:1px solid rgba(203,164,90,.22);border-radius:14px;padding:16px}
+.feat b{display:block;color:var(--gold2);font-size:16px;margin-bottom:4px}
+.feat .ic{font-size:24px}
+.feat p{margin:0;color:#c9d4e3;font-size:14.5px}
+/* המחשת מסכים */
+.phones{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+.phone{width:250px;background:#030915;border-radius:30px;padding:10px;border:2px solid #24385d;box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.scr{background:var(--navy);border-radius:22px;overflow:hidden;height:470px;position:relative;font-size:11px}
+.bar{display:flex;align-items:center;gap:6px;padding:9px 10px;background:#0d2550;border-bottom:1px solid rgba(203,164,90,.4)}
+.bar .dot{width:18px;height:18px;border-radius:50%;background:radial-gradient(circle,var(--gold2),var(--gold) 60%,#6b5426);box-shadow:0 0 8px rgba(203,164,90,.7)}
+.bar span{color:var(--gold2);font-weight:700;font-size:12px}
+.clock{margin:10px;padding:10px;border-radius:12px;background:linear-gradient(90deg,var(--navy),#071533);border:1px solid rgba(203,164,90,.5);text-align:center}
+.clock .t{font-size:26px;color:var(--gold2);font-weight:700;letter-spacing:1px}
+.chips{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin-top:6px}
+.chip{padding:2px 7px;border-radius:99px;border:1px solid rgba(46,158,91,.6);color:#a9e5c2;font-size:9.5px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 10px}
+.c{background:var(--card);border-radius:10px;padding:7px 4px;text-align:center;border-top:3px solid var(--gold)}
+.c .n{font-size:17px;font-weight:700}
+.c .l{font-size:9px;color:#c4cfdf}
+.filter{margin:8px 10px 6px;display:flex;justify-content:space-between;align-items:center;color:var(--mut);font-size:9.5px}
+.filter i{font-style:normal;border:1px solid var(--gold);color:var(--gold2);padding:1px 8px;border-radius:99px}
+.row{display:flex;align-items:center;gap:8px;margin:6px 10px;padding:8px;background:var(--card);border-radius:10px}
+.row .fl{font-size:20px}
+.row .nm{font-weight:700;font-size:12px}
+.row .th{font-size:10px}
+.row .ar{margin-inline-start:auto;font-size:16px}
+.map{position:absolute;inset:42px 0 0 0;background:radial-gradient(ellipse at 40% 45%,#26476f 0,#1a3456 40%,#122746 70%);}
+.land{position:absolute;background:#2b4a68;border-radius:40% 55% 45% 50%;opacity:.9}
+.mk{position:absolute;width:15px;height:15px;border-radius:50%;border:1.5px solid #fff;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.legend{position:absolute;bottom:10px;inset-inline:10px;background:rgba(6,18,41,.85);border-radius:10px;padding:7px;font-size:9.5px;display:flex;gap:8px;justify-content:center}
+.legend s{display:inline-block;width:9px;height:9px;border-radius:50%;text-decoration:none;margin-inline-end:3px;vertical-align:-1px}
+.cap{text-align:center;color:var(--mut);font-size:13px;margin-top:8px}
+.note{text-align:center;color:var(--mut);font-size:12.5px;margin-top:14px}
+/* מחיר */
+.price{max-width:460px;margin:0 auto;background:linear-gradient(180deg,#132f5c,var(--card));border:1px solid var(--gold);border-radius:18px;padding:24px;text-align:center}
+.price .amt{font-size:46px;color:var(--gold2);font-weight:800;line-height:1.1}
+.price .per{color:var(--mut)}
+.price ul{list-style:none;padding:0;margin:16px 0 0;text-align:right}
+.price li{padding:6px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.price li:before{content:"✓";color:var(--ok);font-weight:800;margin-inline-end:8px}
+/* שלבים */
+.steps{counter-reset:s;max-width:720px;margin:0 auto;padding:0;list-style:none}
+.steps li{counter-increment:s;position:relative;padding:12px 56px 12px 12px;margin-bottom:10px;background:var(--card);border-radius:12px}
+.steps li:before{content:counter(s);position:absolute;right:12px;top:12px;width:32px;height:32px;border-radius:50%;background:var(--gold);color:#1b1405;font-weight:800;display:flex;align-items:center;justify-content:center}
+.steps b{color:var(--gold2)}
+/* התקנה */
+details{max-width:760px;margin:0 auto 10px;background:var(--card);border:1px solid rgba(203,164,90,.25);border-radius:12px;padding:0 16px}
+summary{cursor:pointer;padding:14px 0;font-weight:700;font-size:17px;color:var(--gold2);list-style:none}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"▾";float:left;color:var(--gold)}
+details[open] summary:after{content:"▴"}
+details ol{margin:0 0 12px;padding-inline-start:22px}
+details li{margin:4px 0}
+.calm{background:rgba(224,160,32,.1);border:1px solid rgba(224,160,32,.45);border-radius:10px;padding:10px 12px;margin:6px 0 14px;font-size:14.5px}
+.faq dt{font-weight:700;color:var(--gold2);margin-top:14px}
+.faq dd{margin:4px 0 0;color:#cfd8e6}
+.faq{max-width:760px;margin:0 auto}
+footer{text-align:center;padding:30px 0 50px;color:var(--mut);font-size:13px}
+footer a{margin:0 8px}
+.wa{background:#1f8f4e;border-color:#25D366;color:#fff}
+@media (max-width:560px){h1{font-size:28px}.tag{font-size:17px}.phone{width:232px}.scr{height:440px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="icons/Icon-512.png" alt="סמל חוד החנית">
+    <h1>חוד החנית - איסוף</h1>
+    <div class="en">SPEARHEAD INTELLIGENCE COLLECTION</div>
+    <p class="tag">לדעת מה באמת קורה סביבנו. בעברית, בזמן אמת, בלי רעש ובלי שמועות.</p>
+    <p class="sub">מערכת מודיעין ממקורות גלויים שמסננת ומנתחת אלפי דיווחים ביום, ומביאה לטלפון שלך רק את מה שחשוב לביטחון ישראל.</p>
+    <div class="btns">
+      <a class="btn pri" href="#join">איך מצטרפים</a>
+      <a class="btn sec" id="enterBtn" href="./?app=1">כניסה למערכת</a>
+    </div>
+    <div class="pill">🔒 קבוצה סגורה · הצטרפות באישור בלבד</div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>מה מקבלים</h2>
+    <p class="lead">כל מה שצריך כדי להבין את התמונה, במקום אחד.</p>
+    <div class="grid">
+      <div class="feat"><div class="ic">📡</div><b>תמונת מצב חיה</b><p>אלפי דיווחים ביום מסוננים ומנותחים בבינה מלאכותית, מאוחדים לאירועים בלי כפילויות.</p></div>
+      <div class="feat"><div class="ic">🗺️</div><b>זירות ומפה</b><p>איראן, לבנון, סוריה, ישראל, עזה, תימן, עיראק, ירדן וזירה בינלאומית. מפה עם ציר זמן וסינון לפי סוגי אירועים.</p></div>
+      <div class="feat"><div class="ic">🚨</div><b>התרעות לפי בחירתך</b><p>כולל התרעות פיקוד העורף. אתה בוחר אילו התרעות לקבל ומתי, ומצב "רק החשוב" משאיר רק את מה שבאמת דורש תשומת לב.</p></div>
+      <div class="feat"><div class="ic">✅</div><b>שקיפות באימות</b><p>על כל ידיעה מסומן אם היא מאומתת, נתמכת במספר מקורות עצמאיים או ממקור יחיד.</p></div>
+      <div class="feat"><div class="ic">🤖</div><b>עוזר מודיעיני</b><p>שואלים שאלה בעברית ומקבלים ניתוח מסודר. אפשר להפיק דוח ל-PDF או ל-Word בלחיצה.</p></div>
+      <div class="feat"><div class="ic">🛡️</div><b>אבטחה מלאה</b><p>חסימת צילומי מסך, נעילה בטביעת אצבע, אימות דו-שלבי וטבעת אבטחה שנבדקת בשרת.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>איך זה נראה</h2>
+    <p class="lead">המסך הראשי, הזירות והמפה.</p>
+    <div class="phones" aria-label="המחשת מסכי האפליקציה">
+      <div>
+        <div class="phone"><div class="scr">
+          <div class="bar"><div class="dot"></div><span>חוד החנית - איסוף</span></div>
+          <div class="clock"><div class="t">21:47:09</div><div style="color:#c4cfdf;font-size:10px">יום חמישי | שעון ישראל</div>
+            <div class="chips"><span class="chip">מנוע איסוף: פעיל</span><span class="chip">עדכון אחרון: לפני דקה</span></div></div>
+          <div class="filter"><span>מוצג: רק החשוב באמת</span><i>רק החשוב ✓</i></div>
+          <div class="cards">
+            <div class="c"><div class="n" style="color:var(--gold2)">12</div><div class="l">ידיעות חדשות</div></div>
+            <div class="c" style="border-top-color:var(--ok)"><div class="n" style="color:#8fe0b0">31</div><div class="l">מאומתות</div></div>
+            <div class="c" style="border-top-color:#B0006D"><div class="n" style="color:#f29ac9">2</div><div class="l">חריגים</div></div>
+            <div class="c" style="border-top-color:var(--err)"><div class="n" style="color:#ff8d8d">4</div><div class="l">התרעות חשובות</div></div>
+            <div class="c" style="border-top-color:var(--warn)"><div class="n" style="color:#ffd27a">1</div><div class="l">זירות בעלייה</div></div>
+            <div class="c" style="border-top-color:var(--org)"><div class="n" style="color:#ffb27a">6</div><div class="l">סיכון גבוה</div></div>
+          </div>
+          <div class="row"><span class="fl">🇱🇧</span><div><div class="nm">לבנון</div><div class="th" style="color:#ffb27a">רמת איום: כתום</div></div><span class="ar">⬆️</span></div>
+        </div></div>
+        <div class="cap">המסך הראשי</div>
+      </div>
+      <div>
+        <div class="phone"><div class="scr">
+          <div class="bar"><div class="dot"></div><span>זירות</span></div>
+          <div class="row"><span class="fl">🇱🇧</span><div><div class="nm">לבנון</div><div class="th" style="color:#ffb27a">כתום · 2 התרעות פעילות</div></div><span class="ar">⬆️</span></div>
+          <div class="row"><span class="fl">🇸🇾</span><div><div class="nm">סוריה</div><div class="th" style="color:#ffd27a">צהוב · ללא שינוי</div></div><span class="ar">➡️</span></div>
+          <div class="row"><span class="fl">🇵🇸</span><div><div class="nm">רצועת עזה</div><div class="th" style="color:#ffb27a">כתום · 1 התרעה פעילה</div></div><span class="ar">➡️</span></div>
+          <div class="row"><span class="fl">🇮🇱</span><div><div class="nm">ישראל</div><div class="th" style="color:#ffd27a">צהוב · ללא שינוי</div></div><span class="ar">⬇️</span></div>
+          <div class="row"><span class="fl">🇮🇶</span><div><div class="nm">עיראק</div><div class="th" style="color:#8fe0b0">ירוק · שגרה</div></div><span class="ar">➡️</span></div>
+          <div class="row"><span class="fl">🇮🇷</span><div><div class="nm">איראן</div><div class="th" style="color:#ffd27a">צהוב · ללא שינוי</div></div><span class="ar">➡️</span></div>
+          <div class="row"><span class="fl">🇾🇪</span><div><div class="nm">תימן</div><div class="th" style="color:#ffd27a">צהוב · ללא שינוי</div></div><span class="ar">➡️</span></div>
+        </div></div>
+        <div class="cap">מצב הזירות</div>
+      </div>
+      <div>
+        <div class="phone"><div class="scr">
+          <div class="bar"><div class="dot"></div><span>מפה</span></div>
+          <div class="map">
+            <div class="land" style="width:150px;height:120px;top:70px;right:40px"></div>
+            <div class="land" style="width:110px;height:150px;top:150px;right:120px"></div>
+            <div class="land" style="width:90px;height:80px;top:260px;right:20px"></div>
+            <div class="mk" style="top:110px;right:95px;background:var(--org)"></div>
+            <div class="mk" style="top:135px;right:70px;background:var(--err)">!</div>
+            <div class="mk" style="top:170px;right:150px;background:var(--warn)"></div>
+            <div class="mk" style="top:205px;right:105px;background:var(--org)"></div>
+            <div class="mk" style="top:230px;right:60px;background:var(--warn)"></div>
+            <div class="mk" style="top:285px;right:150px;background:var(--org)"></div>
+            <div class="mk" style="top:300px;right:45px;background:var(--err)">!</div>
+            <div class="legend"><span><s style="background:var(--warn)"></s>חריג</span><span><s style="background:var(--org)"></s>משמעותי</span><span><s style="background:var(--err)"></s>חמור</span></div>
+          </div>
+        </div></div>
+        <div class="cap">מפה עם ציר זמן</div>
+      </div>
+    </div>
+    <p class="note">המחשה של מסכי האפליקציה. המספרים לדוגמה בלבד. המערכת אינה מציגה מיקומי כוחות.</p>
+  </div>
+</section>
+
+<section id="price">
+  <div class="wrap">
+    <h2>מחיר</h2>
+    <div class="price">
+      <div class="amt">75 ₪</div>
+      <div class="per">לחודש · תשלום בביט או בפייבוקס</div>
+      <ul>
+        <li>גישה מלאה לכל הזירות, המפה וההתרעות</li>
+        <li>אנדרואיד, אייפון ומחשב</li>
+        <li>עדכוני גרסה ושיפורים שוטפים</li>
+        <li>אין התחייבות. המנוי מתחדש בתשלום חודשי</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="join">
+  <div class="wrap">
+    <h2>איך מצטרפים</h2>
+    <p class="lead">ארבעה צעדים קצרים.</p>
+    <ol class="steps">
+      <li><b>מתקינים את האפליקציה.</b> בטלפון אנדרואיד מורידים את האפליקציה. באייפון או במחשב נכנסים דרך הדפדפן. ההוראות לכל מכשיר נמצאות מתחת.</li>
+      <li><b>נרשמים.</b> במסך הכניסה לוחצים "הרשמה כמנוי" וממלאים שם, טלפון, שם משתמש וסיסמה.</li>
+      <li><b>משלמים ומדווחים.</b> משלמים 75 ₪ בביט או בפייבוקס. אחר כך מדווחים על התשלום באפליקציה, במסך "המנוי שלי".</li>
+      <li><b>מקבלים אישור.</b> מנהל המערכת מאשר את המנוי ידנית אחרי שהתשלום מתקבל. ברגע שהמנוי מאושר מגיעה הודעה באפליקציה "המנוי שלך אושר", וכל המידע נפתח.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <h2>התקנה לפי מכשיר</h2>
+    <p class="lead">בחר את המכשיר שלך.</p>
+
+    <details open>
+      <summary>📱 אנדרואיד (אפליקציה מלאה, כולל התרעות ברקע)</summary>
+      <ol>
+        <li>לוחצים על הכפתור "הורדה לאנדרואיד" שמתחת.</li>
+        <li>פותחים את הקובץ שהורד (spearhead.apk) ולוחצים "התקנה".</li>
+        <li>אם הטלפון מבקש, מאשרים "התקנה ממקור זה" וחוזרים להתקנה.</li>
+        <li>פותחים את האפליקציה ולוחצים "הרשמה כמנוי".</li>
+      </ol>
+      <div class="calm">⚠️ <b>אזהרת "מקור לא ידוע" היא רגילה.</b> אנדרואיד מציג אותה בכל התקנה שלא דרך חנות Google Play. האפליקציה חתומה דיגיטלית, וכל עדכון נבדק מול החתימה הרשמית לפני התקנה.</div>
+      <p style="text-align:center"><a class="btn pri" href="https://github.com/ralgranot-dotcom/spearhead-download/releases/latest/download/spearhead.apk">⬇️ הורדה לאנדרואיד</a></p>
+    </details>
+
+    <details>
+      <summary>🍏 אייפון ואייפד</summary>
+      <ol>
+        <li>פותחים את הדף הזה בדפדפן <b>Safari</b> (לא בכרום ולא מתוך וואטסאפ).</li>
+        <li>לוחצים "כניסה למערכת" למעלה, ומחכים שהמערכת תיטען.</li>
+        <li>לוחצים על כפתור השיתוף (ריבוע עם חץ למעלה).</li>
+        <li>בוחרים "הוספה למסך הבית" ולוחצים "הוספה".</li>
+        <li>מעכשיו נכנסים מהסמל שבמסך הבית.</li>
+      </ol>
+      <div class="calm">באייפון אין התרעות ברקע, נעילה בטביעת אצבע או חסימת צילומי מסך. אלה זמינים באנדרואיד בלבד.</div>
+    </details>
+
+    <details>
+      <summary>💻 מחשב (Windows או Mac)</summary>
+      <ol>
+        <li>פותחים את הדף הזה ב-<b>Chrome</b> או ב-<b>Edge</b>, ולוחצים "כניסה למערכת".</li>
+        <li><b>בכרום:</b> תפריט שלוש הנקודות בפינה העליונה ← "העברה, שמירה ושיתוף" ← "התקנת הדף כאפליקציה".</li>
+        <li><b>באדג':</b> תפריט שלוש הנקודות ← "אפליקציות" ← "התקנת אתר זה כאפליקציה".</li>
+        <li>מאשרים. המערכת תיפתח מעכשיו בחלון משלה, עם סמל בשולחן העבודה.</li>
+      </ol>
+      <div class="calm">אפשר גם פשוט להשתמש במערכת מתוך הדפדפן, בלי להתקין. במק אפשר להשתמש גם ב-Safari: תפריט "קובץ" ← "הוספה ל-Dock".</div>
+    </details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>שאלות נפוצות</h2>
+    <dl class="faq">
+      <dt>כמה זמן לוקח האישור?</dt>
+      <dd>האישור נעשה ידנית על ידי מנהל המערכת, אחרי שהתשלום מתקבל. ברגע שהמנוי מאושר מגיעה אליך הודעה באפליקציה.</dd>
+      <dt>מאיפה מגיע המידע?</dt>
+      <dd>ממקורות גלויים וחוקיים בלבד: אתרי חדשות, הודעות רשמיות ונתונים פתוחים. המערכת מצליבה בין מקורות ומסמנת לכל ידיעה את רמת האימות שלה.</dd>
+      <dt>האם המערכת מחליפה את פיקוד העורף?</dt>
+      <dd>לא. המערכת מציגה גם את התרעות פיקוד העורף, אבל בכל מצב חירום יש לפעול לפי הנחיות פיקוד העורף ואפליקציית פיקוד העורף הרשמית.</dd>
+      <dt>האם אפשר לבטל?</dt>
+      <dd>כן. אין התחייבות. פשוט לא מחדשים את התשלום החודשי.</dd>
+      <dt>מה עם הפרטיות שלי?</dt>
+      <dd>אנחנו שומרים רק את מה שנחוץ לניהול המנוי ולאבטחת החשבון, ולא מוכרים או מעבירים מידע לאף אחד. הפירוט המלא ב<a href="privacy.html">מדיניות הפרטיות</a>.</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap" style="text-align:center">
+    <h2>יש שאלה?</h2>
+    <p class="lead">אפשר לפנות ישירות בוואטסאפ.</p>
+    <a class="btn wa" href="https://wa.me/972525020330?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%97%D7%95%D7%93%20%D7%94%D7%97%D7%A0%D7%99%D7%AA%20-%20%D7%90%D7%99%D7%A1%D7%95%D7%A3">💬 פנייה בוואטסאפ</a>
+  </div>
+</section>
+
+<footer>
+  <div><a href="privacy.html">מדיניות פרטיות</a> · <a href="./?app=1">כניסה למערכת</a></div>
+  <div style="margin-top:8px">חוד החנית - איסוף · תוכנן ונוצר על ידי איתן נוה</div>
+</footer>
+
+<script>
+// מי שלוחץ "כניסה למערכת" לא יראה שוב את דף ההצטרפות בדפדפן הזה
+document.querySelectorAll('a[href="./?app=1"]').forEach(function (a) {
+  a.addEventListener('click', function () { try { localStorage.setItem('sh_joined', '1'); } catch (e) {} });
+});
+</script>
+</body>
+</html>
